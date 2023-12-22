@@ -18,10 +18,8 @@ def decipher(almanac: str):
 
 def computeEnhanced(seed, ranges):
   start, length = seed
-  lowest = []
-  for x in range(length):
-    lowest.append(compute(start + x, ranges))
-  return [min(lowest), 1]
+
+  return [1, 1]
 
 def decipherEnhanced(almanac: str):
   split_regex = r'(?:\d+\s)+\d+'
@@ -32,7 +30,7 @@ def decipherEnhanced(almanac: str):
   return min(reduce(computeEnhanced, maps, list(map(int, seed.split())))[0] for seed in seeds)
 
 
-with open('Day 5/input', 'r') as f:
+with open('Day 5/test', 'r') as f:
   file = f.read()
   print(decipher(file))
   print(decipherEnhanced(file))
