@@ -10,7 +10,7 @@ def compute(paper: str):
   for time, record in zip(times, records):
     ways.append(beatIt(time, record))
   
-  return  math.prod(ways)
+  return math.prod(ways)
 
 def beatIt(time, record):
   # -hold^2 + time*hold = record
