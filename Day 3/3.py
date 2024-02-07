@@ -25,7 +25,7 @@ def engine(text: str):
 
   return result
 
-def engineEnhanced(text: str):
+def engine_enhanced(text: str):
   cols = text.find('\n') + 1
   result = 0
   for symbol in re.finditer(r'\*', text):
@@ -53,4 +53,4 @@ def engineEnhanced(text: str):
 
 with open('Day 3/input', 'r') as f:
   text = ''.join(f.readlines())
-  print(engineEnhanced(text))
+  print(engine_enhanced(text))

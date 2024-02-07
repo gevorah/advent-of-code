@@ -8,11 +8,11 @@ def compute(paper: str):
 
   ways = []
   for time, record in zip(times, records):
-    ways.append(beatIt(time, record))
+    ways.append(beat_it(time, record))
   
   return math.prod(ways)
 
-def beatIt(time, record):
+def beat_it(time, record):
   # -hold^2 + time*hold = record
   delta = time**2 - (-4*-record)
   x1 = math.ceil((-time + math.sqrt(delta)) / -2)
@@ -23,14 +23,14 @@ def beatIt(time, record):
 
   return x2 - x1
 
-def computeEnhanced(paper: str):
+def compute_enhanced(paper: str):
   time, record = paper.split('\n')
   time = int(re.sub(r'[^\d+]', '', time))
   record = int(re.sub(r'[^\d+]', '', record))
 
-  return beatIt(time, record)
+  return beat_it(time, record)
 
 with open('Day 6/input', 'r') as f:
   file = f.read()
   print(compute(file))
-  print(computeEnhanced(file))
+  print(compute_enhanced(file))

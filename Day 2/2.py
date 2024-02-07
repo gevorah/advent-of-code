@@ -1,7 +1,7 @@
 import re
 from functools import reduce
 
-def isPossible(text: str):
+def is_possible(text: str):
   cubes = {'red': 12, 'green': 13, 'blue': 14}
   game = int(re.findall(r'\d+', text)[0])
 
@@ -15,7 +15,7 @@ def isPossible(text: str):
   
   return game
 
-def isPossibleEnhanced(text: str):
+def is_possible_enhanced(text: str):
   cubes = {'red': 12, 'green': 13, 'blue': 14}
 
   regex = re.compile('\d+\s[%s]+' % '|'.join(cubes.keys()))
@@ -32,6 +32,6 @@ def isPossibleEnhanced(text: str):
 with open('Day 2/input', 'r') as f:
   result = 0
   for line in f.readlines():
-    result += isPossibleEnhanced(line)
+    result += is_possible_enhanced(line)
   
   print(result)
