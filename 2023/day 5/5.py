@@ -65,7 +65,7 @@ def quick_search(start, length, maps):
     return minLoc
 
 
-with open("Day 5/input", "r") as f:
+with open("day 5/input", "r") as f:
     file = f.read()
     print(decipher(file))
     print(decipher_enhanced(file))

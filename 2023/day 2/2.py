@@ -32,7 +32,7 @@ def is_possible_enhanced(text: str):
     return reduce((lambda x, y: x * y), min_cubes.values())
 
 
-with open("Day 2/input", "r") as f:
+with open("day 2/input", "r") as f:
     result = 0
     for line in f.readlines():
         result += is_possible_enhanced(line)

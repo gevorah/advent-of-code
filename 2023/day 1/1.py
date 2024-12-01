@@ -17,7 +17,7 @@ def calibrationEnhanced(text: str):
     return int(first + last)
 
 
-with open("Day 1/input", "r") as f:
+with open("day 1/input", "r") as f:
     result = 0
     for line in f.readlines():
         result += calibrationEnhanced(line)

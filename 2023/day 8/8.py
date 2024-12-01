@@ -34,7 +34,7 @@ def compute_enhanced(instructions: str, network: dict, start: str, end: str):
     )
 
 
-with open("Day 8/input", "r") as f:
+with open("day 8/input", "r") as f:
     file = f.read()
     instructions, network = decipher(file)
     print(compute(instructions, network, "AAA", "ZZZ"))

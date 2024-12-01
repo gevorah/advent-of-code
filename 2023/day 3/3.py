@@ -54,6 +54,6 @@ def engine_enhanced(text: str):
     return result
 
 
-with open("Day 3/input", "r") as f:
+with open("day 3/input", "r") as f:
     text = "".join(f.readlines())
     print(engine_enhanced(text))

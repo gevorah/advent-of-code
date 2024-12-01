@@ -30,7 +30,7 @@ def n_copies(cards: list[str]):
     return sum(copies.values())
 
 
-with open("Day 4/input", "r") as f:
+with open("day 4/input", "r") as f:
     cards = f.readlines()
     print(points(cards))
     print(n_copies(cards))

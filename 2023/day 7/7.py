@@ -63,7 +63,7 @@ def cmp(
             return -1
 
 
-with open("Day 7/input", "r") as f:
+with open("day 7/input", "r") as f:
     file = f.read()
     print(compute(file, cmp_hands))
     print(compute(file, cmp_hands_enhanced))
