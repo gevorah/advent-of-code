@@ -2,30 +2,24 @@ import re
 
 def parse_input(file):
   regex = r'\d+'
-  matches = [list(map(int, re.findall(regex, report))) for report in file.split('\n')]
+  matches = [list(map(int, re.findall(regex, line))) for line in file.split('\n')]
   return matches
 
-def analyze(file):
-  reports = parse_input(file)
+def is_safe(report, tolerance=0):
+  for i, (a, b) in enumerate(zip(report, report[1:])):
+    if not 1 <= a - b <= 3:
+      if tolerance == 0: return False
+      return any(is_safe(report[:j] + report[j+1:], tolerance - 1) for j in (i, i+1))
+  return True
+
+def analyze(reports, tolerance=0):
   count = 0
   for report in reports:
-    is_ascending = None
-    for a, b in zip(report, report[1:]):
-      diff = a - b
-      if not is_valid(diff, is_ascending):
-        is_ascending = None
-        break
-      is_ascending = (diff < 0)
-    count += is_ascending is not None
+    if is_safe(report, tolerance) or is_safe(report[::-1], tolerance):
+      count += 1
   return count
-  
-def is_valid(diff, is_ascending):
-  if 0 < diff <= 3:
-    return is_ascending is not True
-  elif -3 <= diff < 0:
-    return is_ascending is not False
-  return False
 
 with open("input", "r") as f:
-  file = f.read()
-  print(analyze(file))
+  reports = parse_input(f.read())
+  print(analyze(reports))
+  print(analyze(reports, 1))
